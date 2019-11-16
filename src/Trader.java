@@ -1,10 +1,10 @@
 public class Trader implements Observer {
     private int value;
-    private Subject simpleSubject;
+    private Subject trader;
 
-    public Trader(Subject simpleSubject){
-        this.simpleSubject = simpleSubject;
-        simpleSubject.registerObserver(this);
+    public Trader(Subject trader){
+        this.trader = trader;
+        trader.registerObserver(this);
     }
 
     @Override
