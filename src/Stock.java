@@ -1,21 +1,30 @@
+/**
+ *  @author Chloe Culver and Alex Chheng
+ */
 import java.util.ArrayList;
 
 public class Stock implements Subject {
     private ArrayList<Observer> observers;
     private int value = 0;
+    public String name;
 
     public Stock(){
         observers = new ArrayList<Observer>();
     }
 
+    public Stock(int v, String n){
+    	value = v;
+    	name = n;
+        observers = new ArrayList<Observer>();
+    }
     @Override
     public void registerObserver(Observer o) {
-        //... add observer to the list
+        observers.add(o);
     }
 
     @Override
     public void removeObserver(Observer o) {
-        //.. remove observer from the list
+       observers.remove(o);
     }
 
     @Override
@@ -29,4 +38,12 @@ public class Stock implements Subject {
         this.value = value;
         notifyObservers();
     }
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 }
