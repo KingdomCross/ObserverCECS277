@@ -32,7 +32,7 @@ public class Trader implements Observer {
      */
     @Override
     public void update(int value) {
-    	System.out.println("The latest trade is Trader: " + name + action +  " $ " + trader.getValue() + " Stock: " + trader.getName());
+    	System.out.println(" The latest trade is Trader: " + name + action +  " $ " + trader.getValue() + " Stock: " + trader.getName());
     		
     }
     /**
