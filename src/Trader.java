@@ -7,7 +7,6 @@ public class Trader implements Observer {
     private Stock trader;
     private String name;
     private String action = "";
-    private int value;
     
     /**
      * Class Constructor 
@@ -33,7 +32,7 @@ public class Trader implements Observer {
      */
     @Override
     public void update(int value) {
-    	System.out.println("The latest trade is Trader: " + name + action +  " $ " + value + " Stock: " + trader.getName());
+    	System.out.println("The latest trade is Trader: " + name + action +  " $ " + trader.getValue() + " Stock: " + trader.getName());
     		
     }
     /**
@@ -46,22 +45,22 @@ public class Trader implements Observer {
     /**
      * buy method for Traders
      */
-    public void buy() 
+    public void buy(Stock trader) 
     {
     	action = " buy";
     	setTrader(trader);
-    	setValue(trader.getValue());
+    	
     }
     /**
      * Sells stock for traders
      * @param t
      */
-    public void sell() 
+    public void sell(Stock trader) 
     {
     	
     	action = " sell";
     	setTrader(trader);
-    	setValue(trader.getValue());
+    	
     }
 
 	public Subject getTrader() {
@@ -88,19 +87,6 @@ public class Trader implements Observer {
 	public void setName(String name) {
 		this.name = name;
 	}
-	/**
-	 * getter for value
-	 * @return
-	 */
-	public int getValue() {
-		return value;
-	}
-	/**
-	 * setter for Value
-	 * @param value
-	 */
-	public void setValue(int value) {
-		this.value = value;
-	}
+
 
 }
