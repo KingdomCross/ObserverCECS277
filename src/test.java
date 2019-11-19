@@ -25,6 +25,7 @@ public class test {
         Hanson.sell();
         stock.removeObserver(Hanson);
         Dylan.sell();
+        s2.removeObserver(Dylan);
         Joe.buy();
         Joe.sell();
         stock.removeObserver(Joe);
