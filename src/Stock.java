@@ -33,7 +33,9 @@ public class Stock implements Subject {
             observer.update(value);
         }
     }
-
+    public int getValue() {
+    	return value;
+    }
     public void setValue(int value){
         this.value = value;
         notifyObservers();

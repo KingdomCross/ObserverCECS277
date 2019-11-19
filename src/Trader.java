@@ -7,7 +7,8 @@ public class Trader implements Observer {
     private Stock trader;
     private String name;
     private String action = "";
-    private boolean buy;
+    private int value;
+    
 
     public Trader(Stock trader){
         this.setTrader(trader);
@@ -22,18 +23,28 @@ public class Trader implements Observer {
 
     @Override
     public void update(int value) {
-    	System.out.println("The latest trade is Trader:" + name + action +  " $ " + value + " Stock: " + trader.getName());
+    	System.out.println("The latest trade is Trader: " + name + ""+ action +  " $ " + value + " Stock: " + trader.getName());
     		
     }
-    public void setAction()
+    public void display()
     {
-    	if(buy)
-    	{
-    		action = "buy";
-    	}
-    	else {
-    		action = "sell";
-    	}
+    	System.out.println(name + " has Stock: " + trader.getName() + " at value: " + trader.getValue());
+    }
+    /**
+     * 
+     */
+    public void buy(Stock t) 
+    {
+    	action = " buy";
+    	setTrader(t);
+    	setValue(t.getValue());
+    }
+    public void sell(Stock t) 
+    {
+    	
+    	action = " sell";
+    	setTrader(t);
+    	setValue(t.getValue());
     }
 
 	public Subject getTrader() {
@@ -50,6 +61,12 @@ public class Trader implements Observer {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	public int getValue() {
+		return value;
+	}
+	public void setValue(int value) {
+		this.value = value;
 	}
 
 }

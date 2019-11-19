@@ -28,7 +28,7 @@ public class SimpleObserver implements Observer {
     @Override
     public void update(int value) {
         this.value = value;
-        display();
+        //display();
     }
 
     /**
