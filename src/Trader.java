@@ -44,6 +44,11 @@ public class Trader implements Observer {
 		// TODO Auto-generated method stub
 		System.out.println(" The latest trade is Trader: " + t.name + t.action +  " $ " + t.trader.getValue() + " Stock: " + t.trader.getName());
 	}
+	public String toString()
+	{
+		String info =" The latest trade is Trader: " + name + action +  " $ " + trader.getValue() + " Stock: " + trader.getName();
+		return info;
+	}
 
     /**
      * buy method for Traders
