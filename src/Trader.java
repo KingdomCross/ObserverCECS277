@@ -28,6 +28,24 @@ public class Trader implements Observer {
          trader.registerObserver(this);
     }
     /**
+     * Adds trader to Stock Observer
+     * @param trader
+     */
+    public void buyStock(Stock trader)
+    {
+    	this.setTrader(trader);
+    	trader.registerObserver(this);
+    }
+    /**
+     * removes Trader as Stock observer
+     * @param trader
+     */
+    public void sellStock(Stock trader)
+    {
+    	this.setTrader(trader);
+    	trader.removeObserver(this);
+    }
+    /**
      * Updates all the traders apart of a specific stock
      */
     @Override
@@ -48,8 +66,9 @@ public class Trader implements Observer {
     public void buy(Stock trader) 
     {
     	action = " buy";
-    	setTrader(trader);
-    	
+    	//setTrader(trader);
+    	trader.registerObserver(this);
+    	trader.notifyObservers();
     }
     /**
      * Sells stock for traders
@@ -59,7 +78,9 @@ public class Trader implements Observer {
     {
     	
     	action = " sell";
-    	setTrader(trader);
+    	//setTrader(trader);
+    	trader.removeObserver(this);
+    	trader.notifyObservers();
     	
     }
 
