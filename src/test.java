@@ -27,9 +27,9 @@ public class test {
         Dylan.sell(GOOG);
         Joe.sell(APPL);
         Joe.buy(COCO);
-//        COCO.notifyObservers();
-//        GOOG.notifyObservers();
-//        APPL.notifyObservers();
+        COCO.notifyObservers();
+        GOOG.notifyObservers();
+        APPL.notifyObservers();
 
     }
 }

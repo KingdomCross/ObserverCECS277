@@ -50,7 +50,7 @@ public class Trader implements Observer {
     	action = " buy";
     	//setTrader(trader);
     	trader.registerObserver(this);
-    	trader.notifyObservers();
+    	//trader.notifyObservers();
     }
     /**
      * Sells stock for traders
@@ -62,7 +62,7 @@ public class Trader implements Observer {
     	action = " sell";
     	//setTrader(trader);
     	trader.removeObserver(this);
-    	trader.notifyObservers();
+    	//trader.notifyObservers();
     	
     }
 
