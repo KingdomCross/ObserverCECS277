@@ -1,12 +1,13 @@
 /**
  * 
  * @author Chloe Culver and Alex Chheng
+ * This class Creates the traders for Stocks 
  *
  */
 public class Trader implements Observer {
     private Stock trader;
     private String name;
-    private String action = "";
+    private String action = " has";
     
     /**
      * Class Constructor 
@@ -24,7 +25,7 @@ public class Trader implements Observer {
     public Trader(Stock trader,String n)
     {
     	setName(n);
-    	 this.setTrader(trader);
+    	 setTrader(trader);
          trader.registerObserver(this);
     }
     /**
@@ -36,21 +37,23 @@ public class Trader implements Observer {
     		
     }
     /**
-     * Displays the stock, trader's name, and the price of stock
+     *  Updates all the traders apart of a specific stock
      */
-    public void display()
-    {
-    	System.out.println(name + " has Stock: " + trader.getName() + " at value: " + trader.getValue());
-    }
+	@Override
+	public void update(Trader t, int value) {
+		// TODO Auto-generated method stub
+		System.out.println(" The latest trade is Trader: " + t.name + t.action +  " $ " + t.trader.getValue() + " Stock: " + t.trader.getName());
+	}
+
     /**
      * buy method for Traders
      */
     public void buy(Stock trader) 
     {
     	action = " buy";
-    	//setTrader(trader);
+    	setTrader(trader);
     	trader.registerObserver(this);
-    	//trader.notifyObservers();
+    	trader.notifyObservers(this);
     }
     /**
      * Sells stock for traders
@@ -61,8 +64,9 @@ public class Trader implements Observer {
     	
     	action = " sell";
     	//setTrader(trader);
+    	trader.notifyObservers(this);
     	trader.removeObserver(this);
-    	//trader.notifyObservers();
+    
     	
     }
 
@@ -90,6 +94,7 @@ public class Trader implements Observer {
 	public void setName(String name) {
 		this.name = name;
 	}
+
 
 
 }

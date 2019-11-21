@@ -10,26 +10,12 @@ public class test {
         Stock GOOG = new Stock(567, "GOOG");
         Trader Hanson = new Trader(COCO, "Hanson");
         Trader Dylan = new Trader(GOOG, "Dylan");
-        Trader Joe = new Trader(COCO, "Joe");
-        //adding Traders to Stocks
-        APPL.registerObserver(Hanson);
-        APPL.registerObserver(Dylan);
-      //adding Traders to Stocks
-        GOOG.registerObserver(Joe);
-      //adding Traders to Stocks
-        COCO.registerObserver(Hanson);
-        COCO.registerObserver(Dylan);
-        COCO.registerObserver(Joe);
-       
-        System.out.println(".....Trading Stocks.....");
+        Trader Joe = new Trader(APPL, "Joe"); 
+        System.out.println("\t\t.....Trading Stocks.....");
         Hanson.sell(COCO);
-        Hanson.buy(GOOG);
-        Dylan.sell(GOOG);
-        Joe.sell(APPL);
+        Hanson.buy(APPL);
+        Dylan.buy(GOOG);
+        Joe.buy(GOOG);
         Joe.buy(COCO);
-        COCO.notifyObservers();
-        GOOG.notifyObservers();
-        APPL.notifyObservers();
-
     }
 }

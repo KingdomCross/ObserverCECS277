@@ -4,5 +4,7 @@
  *
  */
 public interface Observer {
-    public void update(int value);
+    public String getName();
+	void update(Trader t, int value);
+	public void update(int value);
 }

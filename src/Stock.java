@@ -1,5 +1,6 @@
 /**
  *  @author Chloe Culver and Alex Chheng
+ *  This Class creates stocks that can be sold and bought by the Trader class
  */
 import java.util.ArrayList;
 
@@ -8,7 +9,7 @@ public class Stock implements Subject {
     private int value = 0;
     public String name;
 /**
- * Default Constructor
+ * Default Constructors
  */
     public Stock(){
         observers = new ArrayList<Observer>();
@@ -28,7 +29,9 @@ public class Stock implements Subject {
      * Adds traders to ArrayList
      */
     public void registerObserver(Observer o) {
-        observers.add(o);
+    	if(!observers.contains(o.getName()))
+    		observers.add(o);
+    	
     }
     /**
      * removes observer from list
@@ -43,8 +46,15 @@ public class Stock implements Subject {
      * notifies traders looking at stock that something has changed
      */
     public void notifyObservers() {
+    	System.out.println(("....."+ name + " Stocks....."));
         for (Observer observer : observers){
             observer.update(value);
+        }
+    }
+    public void notifyObservers(Observer o) {
+    	System.out.println(("....."+ name + " Stocks....."));
+        for (Observer observer : observers){
+            observer.update((Trader) o,value);
         }
     }
     /**
